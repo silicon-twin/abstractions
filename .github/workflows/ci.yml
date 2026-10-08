@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Restore
+        run: dotnet restore SiliconTwin.Abstractions.sln
+
+      - name: Build
+        run: dotnet build SiliconTwin.Abstractions.sln -c Release --no-restore /p:ContinuousIntegrationBuild=true
+
+      - name: Test
+        run: dotnet test SiliconTwin.Abstractions.sln -c Release --no-build --logger "console;verbosity=normal"
+
+      - name: Pack
+        run: dotnet pack src/SiliconTwin.Abstractions/SiliconTwin.Abstractions.csproj -c Release --no-build --output ./nupkgs
