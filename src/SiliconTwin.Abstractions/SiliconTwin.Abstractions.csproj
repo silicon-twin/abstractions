@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>SiliconTwin.Abstractions</RootNamespace>
+
+    <!-- NuGet package metadata -->
+    <PackageId>SiliconTwin.Abstractions</PackageId>
+    <Version>0.1.0</Version>
+    <Title>SiliconTwin.Abstractions</Title>
+    <Description>Shared, dependency-free contracts for microcontroller emulators: cycle-budgeted execution, GPIO pin banks with timestamped change events, PWM, ADC, UART, SPI and I2C. Trim and AOT safe.</Description>
+    <PackageTags>emulator;microcontroller;mcu;simulation;gpio;avr;rp2040;abstractions</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
+    <!-- Trim / AOT: analyzer warnings are errors in this library -->
+    <IsTrimmable>true</IsTrimmable>
+    <IsAotCompatible>true</IsAotCompatible>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <EnableAotAnalyzer>true</EnableAotAnalyzer>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <!-- Every public member is documented -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!-- Debuggability: SourceLink (built into the SDK), symbols package -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
+</Project>

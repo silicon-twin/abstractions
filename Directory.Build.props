@@ -1,0 +1,14 @@
+<Project>
+  <PropertyGroup>
+    <Authors>Iván Montiel Cardona</Authors>
+    <Company>Silicon Twin</Company>
+    <Copyright>Copyright © 2026 Silicon Twin</Copyright>
+    <RepositoryUrl>https://github.com/silicon-twin/abstractions</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/silicon-twin/abstractions</PackageProjectUrl>
+    <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+</Project>
